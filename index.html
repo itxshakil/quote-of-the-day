@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes</title>
+    <meta name="owner" content="Shakil Alam" />
+    <meta name="author" content="Shakil Alam , itxshakil@gmail.com" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#333333">
+    <meta name="msapplication-TileColor" content="#333333">
+    <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#333333" />
+    <meta name="apple-mobile-web-app-title" content="Quotes of the Day" />
+    <meta name="theme-color" content="#2d3748">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: aliceblue;
+        }
+
+        body {
+            background: #333;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-blend-mode: difference;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            width: 100vw;
+            padding: 0rem 10%;
+        }
+
+        h1 {
+            font-weight: normal;
+            text-align: center;
+            font-size: 3rem;
+            display: none;
+        }
+
+        h2 {
+            text-align: center;
+            font-weight: lighter;
+            padding: 0rem 1rem 0rem 1rem;
+            letter-spacing: 2px;
+        }
+
+        .author {
+            padding-right: 2.5rem;
+            text-align: right;
+            font-size: 1.3rem;
+        }
+
+        h2.quote::before {
+            content: '"';
+        }
+
+        h2.quote::after {
+            content: '"';
+        }
+
+        p.author::before {
+            content: '- ';
+        }
+
+        p.creator {
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            margin: 0 auto;
+            padding: 5px;
+            writing-mode: vertical-lr;
+            left: 0;
+        }
+
+        span.heart {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <main id="app">
+        <h1 class="heading">Quotes of the Day</h1>
+        <h2 class="quote">Try the impossible to show that it can be done.</h2>
+        <p class="author">Terry Fox</p>
+        <p class="creator">Designed with <span class="heart">♥</span> By <a href="https://shakiltech.com">Shakil
+                Alam</a></p>
+    </main>
+    <script>
+        window.onload = () => {
+            "use strict";
+            if ("serviceWorker" in navigator) {
+                navigator.serviceWorker.register("./sw.js");
+            }
+        };
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof localStorage === "undefined") {
+                alert("Sorry! Your Browser Don't Support Web Storage. ");
+                return false;
+            }
+
+            let todayString = getTodayDateString();
+
+            if (getFromStorage(todayString)) {
+                showData(getFromStorage(todayString));
+            } else {
+                fetchFromAPI();
+            }
+
+            function showData(data) {
+                let quoteData = data.contents.quotes[0];
+                let quoteElement = document.querySelector('h2.quote');
+                quoteElement.innerText = quoteData.quote;
+
+                let authorElement = document.querySelector('p.author');
+                authorElement.innerText = quoteData.author;
+
+                let app = document.querySelector('body');
+                app.style.backgroundImage = `url(${quoteData.background})`;
+            }
+            function fetchFromAPI() {
+                fetch('https://quotes.rest/qod?category=inspire&language=en')
+                    .then(response => {
+                        response.json().then(data => {
+                            if (response.ok) {
+                                saveToStorage(data);
+                                showData(getFromStorage(todayString));
+                            } else {
+                                alert(data.error.message);
+                            }
+                        })
+                    })
+            }
+        })
+        function saveToStorage(value) {
+            localStorage.clear();
+            let key = getTodayDateString();
+            localStorage.setItem(key, JSON.stringify(value));
+        }
+
+        function getFromStorage(key) {
+            const value = localStorage.getItem(key);
+            return JSON.parse(value);
+        }
+
+        function getTodayDateString() {
+            let Today = new Date();
+
+            let date = Today.getDate();
+            let month = Today.getMonth() + 1;
+            let year = Today.getFullYear();
+
+            return `${date}-${month}-${year}`;
+        }
+
+    </script>
+</body>
+
+</html>
