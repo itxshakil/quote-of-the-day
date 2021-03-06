@@ -214,11 +214,12 @@
 
         function share() {
             if (navigator.share) {
+                let quote =  document.querySleector('quote').innerText;
+                let author = document.querySelector('.author').innerText;
                 navigator
                     .share({
                         title: "Quote of the Day",
-                        text:
-                            "Check out this awesome inspirational quote web app, where you can read inspirational quote from famous personality everyday.",
+                        text:`${quote} By ${author}`,
                         url: "https://qod.shakiltech.com"
                     })
                     .then(() => console.log("Successful share"))
