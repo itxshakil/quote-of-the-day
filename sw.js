@@ -1,4 +1,4 @@
-var cacheName = 'qod-cache-v1';
+var cacheName = 'qod-cache-v2';
 // Change main js file name
 var filesToCache = [
     '/',
