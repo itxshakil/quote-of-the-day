@@ -2,6 +2,7 @@
   "name": "Quote of the Day",
   "short_name": "QOD",
   "start_url": "/index.html",
+  "description":"Quote of the Day is written EVERY day to inspire you and encourage you to 'carpe diem' (seize the day!) We've found that reading positive quotes, each day, helps by delivering wisdom from those who have gone ahead of us. Allow their wise words to motivate you every day of the week!",
   "display": "standalone",
   "background_color": "#333333",
   "theme_color": "#333333",
