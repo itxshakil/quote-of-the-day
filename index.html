@@ -139,7 +139,7 @@
     <noscript>
         <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLPDC9L" height="0" width="0"
             style="display:none;visibility:hidden"></iframe>
-        </noscript>
+    </noscript>
     <!-- End Google Tag Manager (noscript) -->
     <main id="app">
         <h1 class="heading">Quote of the Day</h1>
@@ -193,18 +193,15 @@
                 let app = document.querySelector('body');
                 app.style.backgroundImage = `url(${quoteData.background})`;
             }
-            function fetchFromAPI() {
-                fetch('https://quotes.rest/qod?category=inspire&language=en')
-                    .then(response => {
-                        response.json().then(data => {
-                            if (response.ok) {
-                                saveToStorage(data);
-                                showData(getFromStorage(todayString));
-                            } else {
-                                alert(data.error.message);
-                            }
-                        })
-                    })
+            async function fetchFromAPI() {
+                let response = fetch('https://quotes.rest/qod?category=inspire&language=en')
+                let data = response.json();
+                if (response.ok) {
+                    saveToStorage(data);
+                    showData(getFromStorage(todayString));
+                } else {
+                    alert(data.error.message);
+                }
             }
         })
         function saveToStorage(value) {
@@ -230,12 +227,12 @@
 
         function share() {
             if (navigator.share) {
-                let quote =  document.querySelector('.quote').innerText;
+                let quote = document.querySelector('.quote').innerText;
                 let author = document.querySelector('.author').innerText;
                 navigator
                     .share({
                         title: "Quote of the Day",
-                        text:`${quote} By ${author}`,
+                        text: `${quote} By ${author}`,
                         url: "https://qod.shakiltech.com"
                     })
                     .then(() => console.log("Successful share"))
