@@ -21,6 +21,17 @@ self.addEventListener('install', function (e) {
     );
 });
 
+self.addEventListener('activate', function (e) {
+    e.waitUntil(
+        caches.keys().then(function (keyList) {
+            return Promise.all(keyList.map(function (key) {
+                if (key !== cacheName) {
+                    return caches.delete(key);
+                }
+            }));
+        })
+    );
+});
 // Serve Cache content when offline
 
 self.addEventListener('fetch', function (event) {
