@@ -199,7 +199,6 @@
                     'https://quotes.rest/qod.json?category=inspire'
                 );
                 let data = await response.json();
-                console.log(data);
                 if (response.ok) {
                     saveToStorage(data);
                     showData(getFromStorage(todayString));

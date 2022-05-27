@@ -1,4 +1,4 @@
-var cacheName = 'qod-cache-v2';
+var cacheName = 'qod-cache-v2.1';
 // Change main js file name
 var filesToCache = [
     '/',
@@ -13,44 +13,36 @@ var filesToCache = [
 ];
 
 // Start the service worker and cache all of the app's content
-self.addEventListener('install', function (e) {
+self.addEventListener('install', (e) => {
     e.waitUntil(
-        caches.open(cacheName).then(function (cache) {
-            return cache.addAll(filesToCache);
-        })
+        caches.open(cacheName).then((cache) => cache.addAll(filesToCache))
     );
 });
 
-self.addEventListener('activate', function (e) {
+self.addEventListener('activate', (e) => {
     e.waitUntil(
-        caches.keys().then(function (keyList) {
-            return Promise.all(keyList.map(function (key) {
-                if (key !== cacheName) {
-                    return caches.delete(key);
-                }
-            }));
-        })
+        caches.keys().then((keyList) => Promise.all(keyList.map((key) => {
+            if (key !== cacheName) {
+                return caches.delete(key);
+            }
+        })))
     );
 });
 // Serve Cache content when offline
 
-self.addEventListener('fetch', function (event) {
+self.addEventListener('fetch', (event) => {
     if (event.request.url == "https://theysaidso.com/img/qod/qod-inspire.jpg") {
         event.respondWith(
-            caches.open('mysite-dynamic').then(function (cache) {
-                return cache.match(event.request)
-                    .then(function (response) {
-                        var fetchPromise = fetch(event.request).then(function (networkResponse) {
-                            // if we got a response from the cache, update the cache
-                            if (response) {
-                                cache.put(event.request, networkResponse.clone());
-                            }
-                            return networkResponse;
-                        });
-
-                        // respond from the cache, or the network
-                        return response || fetchPromise;
-                    });
+            caches.open('mysite-dynamic').then(async function (cache) {
+                const response = await cache.match(event.request);
+                const fetchPromise = fetch(event.request).then((networkResponse) => {
+                    // if we got a response from the cache, update the cache
+                    if (response) {
+                        cache.put(event.request, networkResponse.clone());
+                    }
+                    return networkResponse;
+                });
+                return response || fetchPromise;
             })
         );
     } else {
