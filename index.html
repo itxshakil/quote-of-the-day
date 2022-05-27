@@ -195,8 +195,11 @@
                 app.style.backgroundImage = `url(${quoteData.background})`;
             }
             async function fetchFromAPI() {
-                let response = fetch('https://quotes.rest/qod?category=inspire&language=en')
-                let data = response.json();
+                let response = await fetch(
+                    'https://quotes.rest/qod.json?category=inspire'
+                );
+                let data = await response.json();
+                console.log(data);
                 if (response.ok) {
                     saveToStorage(data);
                     showData(getFromStorage(todayString));
