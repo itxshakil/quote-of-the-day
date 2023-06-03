@@ -42,7 +42,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/manifest.json">
     <meta name="msapplication-TileColor" content="#333333">
-    <meta name="msapplication-TileColor" content="#333333">
     <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="#333333" />
@@ -202,13 +201,42 @@
                 if (response.ok) {
                     saveToStorage(data);
                     showData(getFromStorage(todayString));
+                    saveToRecent(data);
                 } else {
+                    const recent = getFromStorage('recent');
+
+                    if(recent){
+                        let random = Math.floor(Math.random() * recent.length);
+                        showData(recent[random]);
+                    }
+
                     alert(data.error.message);
                 }
             }
-        })
+        });
+
+
+        function saveToRecent(data){
+            let recent = getFromStorage('recent');
+            if(recent){
+                if(recent.length >= 10){
+                    recent.pop();
+                }
+                recent.unshift(data);
+                localStorage.setItem('recent', JSON.stringify(recent));
+            }else{
+                localStorage.setItem('recent', JSON.stringify([data]));
+            }
+        }
+
         function saveToStorage(value) {
-            localStorage.clear();
+            for (let i = 0; i < localStorage.length; i++) {
+                let key = localStorage.key(i);
+                if (key !== 'recent') {
+                    localStorage.removeItem(key);
+                }
+            }
+
             let key = getTodayDateString();
             localStorage.setItem(key, JSON.stringify(value));
         }
