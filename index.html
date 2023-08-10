@@ -194,49 +194,6 @@
                     app.style.backgroundImage = `url(${quoteData.background})`;
                 }
                 async function fetchFromAPI() {
-                    const defaultQuotes = [
-                        { content: 'A finish is more valuable than 100 starts.', author: 'Unknown' },
-                        { content: 'Successful and unsuccessful people have the same amount of time in the day.', author: 'Unknown' },
-                        { content: 'Work expands to fill the time you give it (read: Parkinson’s Law).', author: 'Unknown' },
-                        { content: 'Perfection is productivity’s nemesis.', author: 'Unknown' },
-                        { content: 'If you’re not doing it, it’s not a priority.', author: 'Unknown' },
-                        { content: 'The most valuable to-do list is a done list.', author: 'Unknown' },
-                        { content: 'It’s easier to do something every day than once in a while.', author: 'Unknown' },
-                        { content: 'Half the items on your to-do list shouldn’t be there.', author: 'Unknown' },
-                        { content: 'The more time your productivity system takes to manage, the less productive it makes you.', author: 'Unknown' },
-                        { content: 'The secret to productivity? Do what you avoid.', author: 'Unknown' },
-                        { content: 'Self-doubt doubles the time it takes to get something done.', author: 'Unknown' },
-                        { content: 'You can only be productive if you’re clear on the result you hope to produce.', author: 'Unknown' },
-                        { content: 'Productivity is the art of subtraction.', author: 'Unknown' },
-                        { content: 'Productivity requires opposite skills: The ability to pay attention and ignore.', author: 'Unknown' },
-                        { content: 'The more decisions you remove, the more progress you make.', author: 'Unknown' },
-                        { content: 'The more you do what you want, the more productive you’ll become.', author: 'Unknown' },
-                        { content: 'The goal isn’t to do everything — it’s to do things that align with your goal.', author: 'Unknown' },
-                        { content: 'The goal isn’t more, it’s more impact.', author: 'Unknown' },
-                        { content: 'Group decisions destroy productivity.', author: 'Unknown' },
-                        { content: 'No one can make you do anything but yourself.', author: 'Unknown' },
-                        { content: 'You can’t make something better until you’ve made it.', author: 'Unknown' },
-                        { content: 'Every person who does great things started as a person who did things.', author: 'Unknown' },
-                        { content: 'Productive people value what they want tomorrow more than what they want today.', author: 'Unknown' },
-                        { content: 'Every moment is an opportunity to quit. Or not.', author: 'Unknown' },
-                        { content: 'The best productivity system is to do the work.', author: 'Unknown' },
-                        { content: 'To be productive you’ve got to overcome the fear of how what you produce will be received.', author: 'Unknown' },
-                        { content: 'If you’re not going after the thing you want, you don’t actually want it.', author: 'Unknown' },
-                        { content: 'Busy is not productive.', author: 'Unknown' },
-                        { content: 'The 100th time you do something will be more productive than the first.', author: 'Unknown' },
-                        { content: 'As the saying goes, “You can do anything you want — you just can’t do everything you want.”', author: 'Unknown' },
-                        { content: 'Fun is productive.', author: 'Unknown' },
-                        { content: 'You don’t have to reinvent the wheel — you can learn from the person who did.', author: 'Unknown' },
-                        { content: 'The most important relationship in your life is the one you have with time.', author: 'Unknown' },
-                        { content: 'The most effective productivity hack: Say no.', author: 'Unknown' },
-                        { content: 'The length of a meeting doesn’t need to match your calendar’s default setting.', author: 'Unknown' },
-                        { content: 'You’ll never run out of things to do (if you’re lucky).', author: 'Unknown' },
-                        { content: 'It’s YOUR calendar.', author: 'Unknown' },
-                        { content: 'People who do the most rarely do the best.', author: 'Unknown' },
-                        { content: 'You don’t manage your time, you spend it. Invest wisely.', author: 'Unknown' },
-                        { content: 'Reading this wasn’t productive… unless you act on it.', author: 'Unknown' }
-                    ];
-
                     try {
                         let response = await fetch(
                             'https://quotes.rest/qod.json?category=inspire'
@@ -253,16 +210,14 @@
                                 let random = Math.floor(Math.random() * recent.length);
                                 showData(recent[random]);
                             } else {
-                                let random = Math.floor(Math.random() * defaultQuotes.length);
-                                showDefaultQuote(defaultQuotes[random]);
+                                showDefaultQuote();
                             }
 
                             alert(data.error.message);
                         }
                     } catch (error) {
                         console.log(error);
-                        let random = Math.floor(Math.random() * defaultQuotes.length);
-                        showDefaultQuote(defaultQuotes[random]);
+                        showDefaultQuote();
                     }
                 }
             });
@@ -323,6 +278,57 @@
                     window.location.href =
                         "https://www.facebook.com/sharer/sharer.php?u=https%3A//qod.shakiltech.com";
                 }
+            }
+
+            function showDefaultQuote() {
+                const defaultQuotes = [
+                    { content: 'A finish is more valuable than 100 starts.', author: 'Unknown' },
+                    { content: 'Successful and unsuccessful people have the same amount of time in the day.', author: 'Unknown' },
+                    { content: 'Work expands to fill the time you give it (read: Parkinson’s Law).', author: 'Unknown' },
+                    { content: 'Perfection is productivity’s nemesis.', author: 'Unknown' },
+                    { content: 'If you’re not doing it, it’s not a priority.', author: 'Unknown' },
+                    { content: 'The most valuable to-do list is a done list.', author: 'Unknown' },
+                    { content: 'It’s easier to do something every day than once in a while.', author: 'Unknown' },
+                    { content: 'Half the items on your to-do list shouldn’t be there.', author: 'Unknown' },
+                    { content: 'The more time your productivity system takes to manage, the less productive it makes you.', author: 'Unknown' },
+                    { content: 'The secret to productivity? Do what you avoid.', author: 'Unknown' },
+                    { content: 'Self-doubt doubles the time it takes to get something done.', author: 'Unknown' },
+                    { content: 'You can only be productive if you’re clear on the result you hope to produce.', author: 'Unknown' },
+                    { content: 'Productivity is the art of subtraction.', author: 'Unknown' },
+                    { content: 'Productivity requires opposite skills: The ability to pay attention and ignore.', author: 'Unknown' },
+                    { content: 'The more decisions you remove, the more progress you make.', author: 'Unknown' },
+                    { content: 'The more you do what you want, the more productive you’ll become.', author: 'Unknown' },
+                    { content: 'The goal isn’t to do everything — it’s to do things that align with your goal.', author: 'Unknown' },
+                    { content: 'The goal isn’t more, it’s more impact.', author: 'Unknown' },
+                    { content: 'Group decisions destroy productivity.', author: 'Unknown' },
+                    { content: 'No one can make you do anything but yourself.', author: 'Unknown' },
+                    { content: 'You can’t make something better until you’ve made it.', author: 'Unknown' },
+                    { content: 'Every person who does great things started as a person who did things.', author: 'Unknown' },
+                    { content: 'Productive people value what they want tomorrow more than what they want today.', author: 'Unknown' },
+                    { content: 'Every moment is an opportunity to quit. Or not.', author: 'Unknown' },
+                    { content: 'The best productivity system is to do the work.', author: 'Unknown' },
+                    { content: 'To be productive you’ve got to overcome the fear of how what you produce will be received.', author: 'Unknown' },
+                    { content: 'If you’re not going after the thing you want, you don’t actually want it.', author: 'Unknown' },
+                    { content: 'Busy is not productive.', author: 'Unknown' },
+                    { content: 'The 100th time you do something will be more productive than the first.', author: 'Unknown' },
+                    { content: 'As the saying goes, “You can do anything you want — you just can’t do everything you want.”', author: 'Unknown' },
+                    { content: 'Fun is productive.', author: 'Unknown' },
+                    { content: 'You don’t have to reinvent the wheel — you can learn from the person who did.', author: 'Unknown' },
+                    { content: 'The most important relationship in your life is the one you have with time.', author: 'Unknown' },
+                    { content: 'The most effective productivity hack: Say no.', author: 'Unknown' },
+                    { content: 'The length of a meeting doesn’t need to match your calendar’s default setting.', author: 'Unknown' },
+                    { content: 'You’ll never run out of things to do (if you’re lucky).', author: 'Unknown' },
+                    { content: 'It’s YOUR calendar.', author: 'Unknown' },
+                    { content: 'People who do the most rarely do the best.', author: 'Unknown' },
+                    { content: 'You don’t manage your time, you spend it. Invest wisely.', author: 'Unknown' },
+                    { content: 'Reading this wasn’t productive… unless you act on it.', author: 'Unknown' }
+                ];
+
+                let random = Math.floor(Math.random() * defaultQuotes.length);
+                let quote = defaultQuotes[random];
+
+                document.querySelector('h2.quote').innerText = quote.content;
+                document.querySelector('p.author').innerText = quote.author;
             }
         </script>
     </body>
