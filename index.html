@@ -1,279 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quote of the Day</title>
-    <meta name="description"
-        content="Quote of the Day is written EVERY day to inspire you and encourage you to 'carpe diem' (seize the day!) We've found that reading positive quotes, each day, helps by delivering wisdom from those who have gone ahead of us. Allow their wise words to motivate you every day of the week!" />
-    <meta name="keywords"
-        content="qoute-of-the-day, quote of the day , inspire quote of the day, Inspirational quote of the day" />
-    <meta name="subject" content="Quote of the Day" />
-    <meta name="language" content="en" />
-    <meta name="rating" content="General" />
-    <meta name="url" content="https://qod.shakiltech.com" />
-    <meta name="identifier-URL" content="https://qod.shakiltech.com" />
-    <meta name="owner" content="Shakil Alam" />
-    <meta name="author" content="Shakil Alam , itxshakil@gmail.com" />
-    <meta name="og:title" content="Quote of the Day" />
-    <meta name="og:url" content="https://qod.shakiltech.com" />
-    <meta name="og:site_name" content="Quote of the Day" />
-    <meta name="og:description"
-        content="Quote of the Day is written EVERY day to inspire you and encourage you to 'carpe diem' (seize the day!) We've found that reading positive quotes, each day, helps by delivering wisdom from those who have gone ahead of us. Allow their wise words to motivate you every day of the week!" />
-    <meta name="og:email" content="itxshakil@gamil.com" />
-    <meta name="og:phone_number" content="+918076688419" />
-    <meta name="og:country-name" content="India" />
-    <meta name="og:image" content="/favicon-96x96.png" />
-    <meta name="owner" content="Shakil Alam" />
-    <meta name="author" content="Shakil Alam , itxshakil@gmail.com" />
-    <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="msapplication-TileColor" content="#333333">
-    <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="#333333" />
-    <meta name="apple-mobile-web-app-title" content="Quote of the Day" />
-    <meta name="theme-color" content="#2d3748">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: aliceblue;
-        }
-
-        body {
-            background: #333;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-blend-mode: difference;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            width: 100vw;
-            padding: 0rem 10%;
-        }
-
-        h1 {
-            font-weight: normal;
-            text-align: center;
-            font-size: 3rem;
-            display: none;
-        }
-
-        h2 {
-            text-align: center;
-            font-weight: lighter;
-            padding: 0rem 1rem 0rem 1rem;
-            letter-spacing: 2px;
-        }
-
-        .author {
-            padding-right: 2.5rem;
-            text-align: right;
-            font-size: 1.3rem;
-        }
-
-        h2.quote::before {
-            content: '"';
-        }
-
-        h2.quote::after {
-            content: '"';
-        }
-
-        p.author::before {
-            content: '- ';
-        }
-
-        .share-btn {
-            display: inline-flex;
-            padding: .5em 0.7rem;
-            border-radius: 999px;
-            position: fixed;
-            bottom: 1rem;
-            margin: 0 auto;
-            background-color: #c8e0ff;
-            color: #15345b;
-            align-items: center;
-            left: calc(50vw - 43px);
-            filter: drop-shadow(2px 4px 6px black);
-            text-transform: uppercase;
-            font-size: small;
-            font-weight: 700;
-        }
-
-        .share-btn svg {
-            width: 1rem;
-        }
-    </style>
-    <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-PLPDC9L');</script>
-    <!-- End Google Tag Manager -->
-</head>
-
-<body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLPDC9L" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe>
-    </noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <main id="app">
-        <h1 class="heading">Quote of the Day</h1>
-        <h2 class="quote">Try the impossible to show that it can be done.</h2>
-        <p class="author">Terry Fox</p>
-        <div class="share-btn" title="Share Now with your friends.">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M0 0h24v24H0V0z" fill="none" />
-                <path
-                    d="M18 16.1c-.8 0-1.4.3-2 .8l-7.1-4.2c.1-.2.1-.5.1-.7s0-.5-.1-.7L16 7.2c.5.5 1.2.8 2 .8 1.7 0 3-1.3 3-3s-1.3-3-3-3-3 1.3-3 3c0 .2 0 .5.1.7L8 9.8C7.5 9.3 6.8 9 6 9c-1.7 0-3 1.3-3 3s1.3 3 3 3c.8 0 1.5-.3 2-.8l7.1 4.2c-.1.2-.1.4-.1.6 0 1.6 1.3 2.9 2.9 2.9s2.9-1.3 2.9-2.9-1.2-2.9-2.8-2.9z"
-                    fill="#2c5282" />
-            </svg>&nbsp; Share
-        </div>
-    </main>
-    <script>
-        window.onload = () => {
-            "use strict";
-            if ("serviceWorker" in navigator) {
-                navigator.serviceWorker.register("./sw.js");
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Quote of the Day</title>
+        <meta name="description"
+            content="Quote of the Day is written EVERY day to inspire you and encourage you to 'carpe diem' (seize the day!) We've found that reading positive quotes, each day, helps by delivering wisdom from those who have gone ahead of us. Allow their wise words to motivate you every day of the week!" />
+        <meta name="keywords"
+            content="qoute-of-the-day, quote of the day , inspire quote of the day, Inspirational quote of the day" />
+        <meta name="subject" content="Quote of the Day" />
+        <meta name="language" content="en" />
+        <meta name="rating" content="General" />
+        <meta name="url" content="https://qod.shakiltech.com" />
+        <meta name="identifier-URL" content="https://qod.shakiltech.com" />
+        <meta name="owner" content="Shakil Alam" />
+        <meta name="author" content="Shakil Alam , itxshakil@gmail.com" />
+        <meta name="og:title" content="Quote of the Day" />
+        <meta name="og:url" content="https://qod.shakiltech.com" />
+        <meta name="og:site_name" content="Quote of the Day" />
+        <meta name="og:description"
+            content="Quote of the Day is written EVERY day to inspire you and encourage you to 'carpe diem' (seize the day!) We've found that reading positive quotes, each day, helps by delivering wisdom from those who have gone ahead of us. Allow their wise words to motivate you every day of the week!" />
+        <meta name="og:email" content="itxshakil@gamil.com" />
+        <meta name="og:phone_number" content="+918076688419" />
+        <meta name="og:country-name" content="India" />
+        <meta name="og:image" content="/favicon-96x96.png" />
+        <meta name="owner" content="Shakil Alam" />
+        <meta name="author" content="Shakil Alam , itxshakil@gmail.com" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/manifest.json">
+        <meta name="msapplication-TileColor" content="#333333">
+        <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="#333333" />
+        <meta name="apple-mobile-web-app-title" content="Quote of the Day" />
+        <meta name="theme-color" content="#2d3748">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                color: aliceblue;
             }
-        };
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            let shareBtn = document.querySelector('.share-btn');
-            shareBtn.addEventListener('click', () => {
-                share();
+
+            body {
+                background: #333;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-blend-mode: difference;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                width: 100vw;
+                padding: 0rem 10%;
+            }
+
+            h1 {
+                font-weight: normal;
+                text-align: center;
+                font-size: 3rem;
+                display: none;
+            }
+
+            h2 {
+                text-align: center;
+                font-weight: lighter;
+                padding: 0rem 1rem 0rem 1rem;
+                letter-spacing: 2px;
+            }
+
+            .author {
+                padding-right: 2.5rem;
+                text-align: right;
+                font-size: 1.3rem;
+            }
+
+            h2.quote::before {
+                content: '"';
+            }
+
+            h2.quote::after {
+                content: '"';
+            }
+
+            p.author::before {
+                content: '- ';
+            }
+
+            .share-btn {
+                display: inline-flex;
+                padding: .5em 0.7rem;
+                border-radius: 999px;
+                position: fixed;
+                bottom: 1rem;
+                margin: 0 auto;
+                background-color: #c8e0ff;
+                color: #15345b;
+                align-items: center;
+                left: calc(50vw - 43px);
+                filter: drop-shadow(2px 4px 6px black);
+                text-transform: uppercase;
+                font-size: small;
+                font-weight: 700;
+            }
+
+            .share-btn svg {
+                width: 1rem;
+            }
+        </style>
+        <!-- Google Tag Manager -->
+        <script>(function (w, d, s, l, i) {
+                w[l] = w[l] || []; w[l].push({
+                    'gtm.start':
+                        new Date().getTime(), event: 'gtm.js'
+                }); var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-PLPDC9L');</script>
+        <!-- End Google Tag Manager -->
+    </head>
+
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLPDC9L" height="0" width="0"
+                style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        <main id="app">
+            <h1 class="heading">Quote of the Day</h1>
+            <h2 class="quote">Try the impossible to show that it can be done.</h2>
+            <p class="author">Terry Fox</p>
+            <div class="share-btn" title="Share Now with your friends.">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M0 0h24v24H0V0z" fill="none" />
+                    <path
+                        d="M18 16.1c-.8 0-1.4.3-2 .8l-7.1-4.2c.1-.2.1-.5.1-.7s0-.5-.1-.7L16 7.2c.5.5 1.2.8 2 .8 1.7 0 3-1.3 3-3s-1.3-3-3-3-3 1.3-3 3c0 .2 0 .5.1.7L8 9.8C7.5 9.3 6.8 9 6 9c-1.7 0-3 1.3-3 3s1.3 3 3 3c.8 0 1.5-.3 2-.8l7.1 4.2c-.1.2-.1.4-.1.6 0 1.6 1.3 2.9 2.9 2.9s2.9-1.3 2.9-2.9-1.2-2.9-2.8-2.9z"
+                        fill="#2c5282" />
+                </svg>&nbsp; Share
+            </div>
+        </main>
+        <script>
+            window.onload = () => {
+                "use strict";
+                if ("serviceWorker" in navigator) {
+                    navigator.serviceWorker.register("./sw.js");
+                }
+            };
+        </script>
+        <script>
+            const defaultQuotes = [
+                { content: 'A finish is more valuable than 100 starts.', author: 'Unknown' },
+                { content: 'Successful and unsuccessful people have the same amount of time in the day.', author: 'Unknown' },
+                { content: 'Work expands to fill the time you give it (read: Parkinson’s Law).', author: 'Unknown' },
+                { content: 'Perfection is productivity’s nemesis.', author: 'Unknown' },
+                { content: 'If you’re not doing it, it’s not a priority.', author: 'Unknown' },
+                { content: 'The most valuable to-do list is a done list.', author: 'Unknown' },
+                { content: 'It’s easier to do something every day than once in a while.', author: 'Unknown' },
+                { content: 'Half the items on your to-do list shouldn’t be there.', author: 'Unknown' },
+                { content: 'The more time your productivity system takes to manage, the less productive it makes you.', author: 'Unknown' },
+                { content: 'The secret to productivity? Do what you avoid.', author: 'Unknown' },
+                { content: 'Self-doubt doubles the time it takes to get something done.', author: 'Unknown' },
+                { content: 'You can only be productive if you’re clear on the result you hope to produce.', author: 'Unknown' },
+                { content: 'Productivity is the art of subtraction.', author: 'Unknown' },
+                { content: 'Productivity requires opposite skills: The ability to pay attention and ignore.', author: 'Unknown' },
+                { content: 'The more decisions you remove, the more progress you make.', author: 'Unknown' },
+                { content: 'The more you do what you want, the more productive you’ll become.', author: 'Unknown' },
+                { content: 'The goal isn’t to do everything — it’s to do things that align with your goal.', author: 'Unknown' },
+                { content: 'The goal isn’t more, it’s more impact.', author: 'Unknown' },
+                { content: 'Group decisions destroy productivity.', author: 'Unknown' },
+                { content: 'No one can make you do anything but yourself.', author: 'Unknown' },
+                { content: 'You can’t make something better until you’ve made it.', author: 'Unknown' },
+                { content: 'Every person who does great things started as a person who did things.', author: 'Unknown' },
+                { content: 'Productive people value what they want tomorrow more than what they want today.', author: 'Unknown' },
+                { content: 'Every moment is an opportunity to quit. Or not.', author: 'Unknown' },
+                { content: 'The best productivity system is to do the work.', author: 'Unknown' },
+                { content: 'To be productive you’ve got to overcome the fear of how what you produce will be received.', author: 'Unknown' },
+                { content: 'If you’re not going after the thing you want, you don’t actually want it.', author: 'Unknown' },
+                { content: 'Busy is not productive.', author: 'Unknown' },
+                { content: 'The 100th time you do something will be more productive than the first.', author: 'Unknown' },
+                { content: 'As the saying goes, “You can do anything you want — you just can’t do everything you want.”', author: 'Unknown' },
+                { content: 'Fun is productive.', author: 'Unknown' },
+                { content: 'You don’t have to reinvent the wheel — you can learn from the person who did.', author: 'Unknown' },
+                { content: 'The most important relationship in your life is the one you have with time.', author: 'Unknown' },
+                { content: 'The most effective productivity hack: Say no.', author: 'Unknown' },
+                { content: 'The length of a meeting doesn’t need to match your calendar’s default setting.', author: 'Unknown' },
+                { content: 'You’ll never run out of things to do (if you’re lucky).', author: 'Unknown' },
+                { content: 'It’s YOUR calendar.', author: 'Unknown' },
+                { content: 'People who do the most rarely do the best.', author: 'Unknown' },
+                { content: 'You don’t manage your time, you spend it. Invest wisely.', author: 'Unknown' },
+                { content: 'Reading this wasn’t productive… unless you act on it.', author: 'Unknown' }
+            ];
+
+            document.addEventListener('DOMContentLoaded', () => {
+                let shareBtn = document.querySelector('.share-btn');
+                shareBtn.addEventListener('click', () => {
+                    share();
+                });
+
+                if (typeof localStorage === "undefined") {
+                    alert("Sorry! Your Browser Don't Support Web Storage. ");
+                    return false;
+                }
+
+                let todayString = getTodayDateString();
+
+                if (getFromStorage(todayString)) {
+                    showData(getFromStorage(todayString));
+                } else {
+                    fetchFromAPI();
+                }
+
+                function showData(data) {
+                    let quoteData = data.contents.quotes[0];
+                    let quoteElement = document.querySelector('h2.quote');
+                    quoteElement.innerText = quoteData.quote;
+
+                    let authorElement = document.querySelector('p.author');
+                    authorElement.innerText = quoteData.author;
+
+                    let app = document.querySelector('body');
+                    app.style.backgroundImage = `url(${quoteData.background})`;
+                }
+                async function fetchFromAPI() {
+                    let response = await fetch(
+                        'https://quotes.rest/qod.json?category=inspire'
+                    );
+                    let data = await response.json();
+                    if (response.ok) {
+                        saveToStorage(data);
+                        showData(getFromStorage(todayString));
+                        saveToRecent(data);
+                    } else {
+                        const recent = getFromStorage('recent');
+
+                        if (recent) {
+                            let random = Math.floor(Math.random() * recent.length);
+                            showData(recent[random]);
+                        } else {
+                            let random = Math.floor(Math.random() * defaultQuotes.length);
+                            showDefaultQuote(defaultQuotes[random]);
+                        }
+
+                        alert(data.error.message);
+                    }
+                }
             });
 
-            if (typeof localStorage === "undefined") {
-                alert("Sorry! Your Browser Don't Support Web Storage. ");
-                return false;
-            }
-
-            let todayString = getTodayDateString();
-
-            if (getFromStorage(todayString)) {
-                showData(getFromStorage(todayString));
-            } else {
-                fetchFromAPI();
-            }
-
-            function showData(data) {
-                let quoteData = data.contents.quotes[0];
-                let quoteElement = document.querySelector('h2.quote');
-                quoteElement.innerText = quoteData.quote;
-
-                let authorElement = document.querySelector('p.author');
-                authorElement.innerText = quoteData.author;
-
-                let app = document.querySelector('body');
-                app.style.backgroundImage = `url(${quoteData.background})`;
-            }
-            async function fetchFromAPI() {
-                let response = await fetch(
-                    'https://quotes.rest/qod.json?category=inspire'
-                );
-                let data = await response.json();
-                if (response.ok) {
-                    saveToStorage(data);
-                    showData(getFromStorage(todayString));
-                    saveToRecent(data);
-                } else {
-                    const recent = getFromStorage('recent');
-
-                    if(recent){
-                        let random = Math.floor(Math.random() * recent.length);
-                        showData(recent[random]);
+            function saveToRecent(data) {
+                let recent = getFromStorage('recent');
+                if (recent) {
+                    if (recent.length >= 10) {
+                        recent.pop();
                     }
-
-                    alert(data.error.message);
-                }
-            }
-        });
-
-
-        function saveToRecent(data){
-            let recent = getFromStorage('recent');
-            if(recent){
-                if(recent.length >= 10){
-                    recent.pop();
-                }
-                recent.unshift(data);
-                localStorage.setItem('recent', JSON.stringify(recent));
-            }else{
-                localStorage.setItem('recent', JSON.stringify([data]));
-            }
-        }
-
-        function saveToStorage(value) {
-            for (let i = 0; i < localStorage.length; i++) {
-                let key = localStorage.key(i);
-                if (key !== 'recent') {
-                    localStorage.removeItem(key);
+                    recent.unshift(data);
+                    localStorage.setItem('recent', JSON.stringify(recent));
+                } else {
+                    localStorage.setItem('recent', JSON.stringify([data]));
                 }
             }
 
-            let key = getTodayDateString();
-            localStorage.setItem(key, JSON.stringify(value));
-        }
+            function saveToStorage(value) {
+                for (let i = 0; i < localStorage.length; i++) {
+                    let key = localStorage.key(i);
+                    if (key !== 'recent') {
+                        localStorage.removeItem(key);
+                    }
+                }
 
-        function getFromStorage(key) {
-            const value = localStorage.getItem(key);
-            return JSON.parse(value);
-        }
-
-        function getTodayDateString() {
-            let Today = new Date();
-
-            let date = Today.getDate();
-            let month = Today.getMonth() + 1;
-            let year = Today.getFullYear();
-
-            return `${date}-${month}-${year}`;
-        }
-
-        function share() {
-            if (navigator.share) {
-                let quote = document.querySelector('.quote').innerText;
-                let author = document.querySelector('.author').innerText;
-                navigator
-                    .share({
-                        title: "Quote of the Day",
-                        text: `${quote} By ${author}`,
-                        url: "https://qod.shakiltech.com"
-                    })
-                    .then(() => console.log("Successful share"))
-                    .catch(error => console.log("Error sharing", error));
-            } else {
-                window.location.href =
-                    "https://www.facebook.com/sharer/sharer.php?u=https%3A//qod.shakiltech.com";
+                let key = getTodayDateString();
+                localStorage.setItem(key, JSON.stringify(value));
             }
-        }
-    </script>
-</body>
+
+            function getFromStorage(key) {
+                const value = localStorage.getItem(key);
+                return JSON.parse(value);
+            }
+
+            function getTodayDateString() {
+                let Today = new Date();
+
+                let date = Today.getDate();
+                let month = Today.getMonth() + 1;
+                let year = Today.getFullYear();
+
+                return `${date}-${month}-${year}`;
+            }
+
+            function share() {
+                if (navigator.share) {
+                    let quote = document.querySelector('.quote').innerText;
+                    let author = document.querySelector('.author').innerText;
+                    navigator
+                        .share({
+                            title: "Quote of the Day",
+                            text: `${quote} By ${author}`,
+                            url: "https://qod.shakiltech.com"
+                        })
+                        .then(() => console.log("Successful share"))
+                        .catch(error => console.log("Error sharing", error));
+                } else {
+                    window.location.href =
+                        "https://www.facebook.com/sharer/sharer.php?u=https%3A//qod.shakiltech.com";
+                }
+            }
+        </script>
+    </body>
 
 </html>
