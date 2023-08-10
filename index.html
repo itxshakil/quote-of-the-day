@@ -237,26 +237,32 @@
                     app.style.backgroundImage = `url(${quoteData.background})`;
                 }
                 async function fetchFromAPI() {
-                    let response = await fetch(
-                        'https://quotes.rest/qod.json?category=inspire'
-                    );
-                    let data = await response.json();
-                    if (response.ok) {
-                        saveToStorage(data);
-                        showData(getFromStorage(todayString));
-                        saveToRecent(data);
-                    } else {
-                        const recent = getFromStorage('recent');
-
-                        if (recent) {
-                            let random = Math.floor(Math.random() * recent.length);
-                            showData(recent[random]);
+                    try{
+                        let response = await fetch(
+                            'https://quotes.rest/qod.json?category=inspire'
+                        );
+                        let data = await response.json();
+                        if (response.ok) {
+                            saveToStorage(data);
+                            showData(getFromStorage(todayString));
+                            saveToRecent(data);
                         } else {
-                            let random = Math.floor(Math.random() * defaultQuotes.length);
-                            showDefaultQuote(defaultQuotes[random]);
-                        }
+                            const recent = getFromStorage('recent');
 
-                        alert(data.error.message);
+                            if (recent) {
+                                let random = Math.floor(Math.random() * recent.length);
+                                showData(recent[random]);
+                            } else {
+                                let random = Math.floor(Math.random() * defaultQuotes.length);
+                                showDefaultQuote(defaultQuotes[random]);
+                            }
+
+                            alert(data.error.message);
+                        }
+                    } catch (error) {
+                        console.log(error);
+                        let random = Math.floor(Math.random() * defaultQuotes.length);
+                        showDefaultQuote(defaultQuotes[random]);
                     }
                 }
             });
