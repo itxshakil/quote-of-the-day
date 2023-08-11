@@ -325,7 +325,8 @@
                 ];
 
                 const quoteIndex = getTodayDateString().hashCode() % defaultQuotes.length;
-                let quote = defaultQuotes[quoteIndex];
+                const positiveIndex = quoteIndex >= 0 ? quoteIndex : quoteIndex + defaultQuotes.length
+                let quote = defaultQuotes[positiveIndex];
 
                 document.querySelector('h2.quote').innerText = quote.content;
                 document.querySelector('p.author').innerText = quote.author;
