@@ -324,12 +324,17 @@
                     { content: 'Reading this wasn’t productive… unless you act on it.', author: 'Unknown' }
                 ];
 
-                let random = Math.floor(Math.random() * defaultQuotes.length);
-                let quote = defaultQuotes[random];
+                const quoteIndex = getTodayDateString().hashCode() % defaultQuotes.length;
+                let quote = defaultQuotes[quoteIndex];
 
                 document.querySelector('h2.quote').innerText = quote.content;
                 document.querySelector('p.author').innerText = quote.author;
             }
+
+            String.prototype.hashCode = function () {
+                return Array.from(this).reduce((hash, char) => (hash << 5) - hash + char.charCodeAt(0), 0) | 0;
+            };
+
         </script>
     </body>
 
