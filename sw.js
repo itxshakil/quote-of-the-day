@@ -3,6 +3,7 @@ var cacheName = 'qod-cache-v2.2';
 var filesToCache = [
     '/',
     '/index.html',
+    '/index.html?utm_source=homescreen',
     '/manifest.json',
     '/icons/android-icon-72x72.png',
     '/icons/android-icon-96x96.png',
@@ -31,7 +32,7 @@ self.addEventListener('activate', (e) => {
 // Serve Cache content when offline
 
 self.addEventListener('fetch', (event) => {
-    if (event.request.url == "https://theysaidso.com/img/qod/qod-inspire.jpg") {
+    if (event.request.url === "https://theysaidso.com/img/qod/qod-inspire.jpg") {
         event.respondWith(
             caches.open('mysite-dynamic').then(async function (cache) {
                 const response = await cache.match(event.request);

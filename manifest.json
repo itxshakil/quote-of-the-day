@@ -1,7 +1,7 @@
 {
   "name": "Quote of the Day",
   "short_name": "QOD",
-  "start_url": "/index.html",
+  "start_url": "/index.html?utm_source=homescreen",
   "description":"Quote of the Day is written EVERY day to inspire you and encourage you to 'carpe diem' (seize the day!) We've found that reading positive quotes, each day, helps by delivering wisdom from those who have gone ahead of us. Allow their wise words to motivate you every day of the week!",
   "display": "standalone",
   "background_color": "#333333",
@@ -37,6 +37,22 @@
       "src": "/icons/icon-512.png",
       "type": "image/png",
       "sizes": "512x512"
+    }
+  ],
+  "screenshots" : [
+    {
+      "src" : "/screenshots/QUOTE_HOME_PAGE_SCREENSHOT.png",
+      "sizes": "1409x2862",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Home Page"
+    },
+    {
+      "src" : "/screenshots/QUOTE_HOME_PAGE_SCREENSHOT_WIDE.png",
+      "sizes": "1750x2504",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Home Page"
     }
   ]
 }
